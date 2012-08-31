@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<!-- Week 1 -->
+<!-- David Tyler Kneisly -->
+<!-- ASD 1209 -->
+<!-- Book Tracker -->
+
+<html lang="en">
+	<!-- HTML DOCUMENT HEADER -->
+	<head>
+		<meta charset="utf-8">
+		<title>David Kneisly:  Book Tracker</title>
+		<meta name="author" content="David Tyler Kneisly">
+		<meta name="description" content="index page for the Book Tracker web app." />
+		<meta name="keywords" content="html5, mobile development, Full Sail University, Reading, Read, Write, Novel, Book, Education, Authors, Genres, Tracker, Track" />
+		<meta name="robots" content="index, follow" />
+		<meta name="HandheldFriendly" content="True">
+		<meta name="MobileOptimized" content="320"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="viewport" content="target-densitydpi=device-dpi" />
+		<meta http-equiv="cleartype" content="on">
+		<!-- Stylesheet Links -->
+		<link rel="stylesheet" type="text/css" href="http://code.jquery.com/mobile/latest/jquery.mobile.min.css" />
+		<link rel="stylesheet" type="text/css" href="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.min.css" /> 
+		<link rel='stylesheet' type='text/css' href="http://fonts.googleapis.com/css?family=Economica|Yesteryear|Rancho" />
+		<link rel="stylesheet" type="text/css" href="css/styles.css" />
+		<script src="js/libs/modernizr.custom.min.js"></script>
+	</head>
+	
+	<!-- Document Body -->
+	<body>
+		<div>
+			<!-- Start of Home Page -->
+			<div data-role="page" id="home" style="background-image:url(images/ribbon.png)" >
+				<!-- Header -->
+				<div data-role="header" data-id="header" data-theme="c" data-position="fixed" data-tap-toggle="false" class="header">
+					<h1>Book Tracker<img src="images/Header_xs.png" alt="Book Tracker" class="header_img"/></h1>
+				</div>
+				<!-- Page Content "CTA"-->
+				<div data-role="content" class="cta">
+					<a href="#newItem" class="featurestack" data-transition="slideup">
+						<div>
+							<p id="function">Get Started</p>
+							<h5>Click here to track a new book...</h5>
+							<span class="img_wrapper"><img id="logo" src="images/logo.png" alt="Logo"/></span>
+						</div>
+					</a>
+				</div>
+				<!-- Footer -->
+				<div data-role="footer" data-id="footer" data-position="fixed" data-theme="d" data-tap-toggle="false" class="nav_footer" id="nav_footer_home" >
+					<!-- Page Content "Browse Button" -->
+					<div data-role="content" class="body" id="homebrowse">
+						<p id="bbuttontext">...or click below to browse</p>
+						<a href="#BookType" data-role="button" data-transition="slide" id="brbutton">Browse your collection...</a>
+					</div>
+					<div data-role="navbar" data-position="fixed" data-tap-toggle="false" class="navbar" id="navbar_home" >
+						<ul>
+							<li><a href="#home" class="ui-btn-active">Home</a></li>
+							<li><a href="#newItem" data-transition="slideup">Add New</a></li>
+							<li><a href="#viewAllItems" class="viewall" data-transition="slide">View All</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<!-- End of Home Page -->
+			<!-- Start of #BookType page "Single-Page Drill-Down" -->
+			<div data-role="page" id="BookType" class="browser" style="background-image:url(images/banner.png)">
+				<!-- Header -->
+				<div data-role="header" data-id="header" data-theme="c" data-position="fixed" data-tap-toggle="false" class="header">
+					<h1>Book Tracker<img src="images/Header_xs.png" alt="Book Tracker" class="header_img"/></h1>
+				</div>
+				<!-- Page Content "CTA" -->
+				<div data-role="content" data-id="cta" class="cta">
+					<a href="#home" data-rel="back" class="featurestack">
+						<div>
+							<p class="banner">Browse by Type</p>
+							<h6>or click here to go back</h6>
+						</div>
+					</a>
+				</div>
+				<!-- Page Content "Narrow Browse Results by Type" -->
+				<div data-role="content" class="body">
+					<ul class="browse" data-role="listview" data-inset="true" data-dividertheme="b">
+						<li data-role="list-divider" class="listheader">Begin by picking a type...</li>
+						<li data-theme="c" class="genreli"><a href="#BookGenres" data-transition="slide" id="aBook">Book</a></li>
+						<li data-theme="c" class="genreli"><a href="#BookGenres" data-transition="slide" id="aEReader">E-Reader</a></li>
+						<li data-theme="c" class="genreli"><a href="#BookGenres" data-transition="slide" id="aTablet">Tablet</a></li>
+						<li data-theme="c" class="genreli"><a href="#BookGenres" data-transition="slide" id="aOnline">Online</a></li>
+					</ul>
+				</div>
+				<!-- Footer -->
+				<div data-role="footer" data-id="footer" data-position="fixed" data-theme="d" data-tap-toggle="false" class="nav_footer" id="nav_footer_booktype">
+					<div data-role="navbar" data-position="fixed" data-tap-toggle="false" class="navbar" id="navbar_booktype">
+						<ul>
+							<li><a href="#home" data-transition="slide" data-direction="reverse">Home</a></li>
+							<li><a href="#newItem" data-transition="slideup">Add New</a></li>
+							<li><a href="#viewAllItems" class="viewall" data-transition="slide">View All</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<!-- End of #BookType page -->
+			<!-- Start of #Genres 'Single-Page Drill-Down' -->
+			<div data-role="page" id="BookGenres" class="browser" style="background-image:url(images/banner.png)">
+				<!-- Header -->
+				<div data-role="header" data-id="header" data-theme="c" data-position="fixed" data-tap-toggle="false" class="header">
+					<h1>Book Tracker<img src="images/Header_xs.png" alt="Book Tracker" class="header_img"/></h1>
+				</div>
+				<!-- Page Content "CTA" -->
+				<div data-role="content" data-id="cta" class="cta">
+					<a href="#BookType" data-rel="back" class="featurestack">
+						<div>
+							<p class="banner">Browse by Genre</p>
+							<h6>or click here to go back</h6>
+						</div>
+					</a>
+				</div>
+				<!-- Page Content "Narrow Browse Results By Genre" -->
+				<div data-role="content" class="body">
+					<ul class="browse" data-role="listview" data-inset="true" data-dividertheme="b">
+						<li data-role="list-divider" class="listheader">Pick a genre...</li>
+						<li data-theme="c" class="genreli"><a href="#Results" data-transition="slide">Science-Fiction</a></li>
+						<li data-theme="c" class="genreli"><a href="#Results" data-transition="slide">Fantasy</a></li>
+						<li data-theme="c" class="genreli"><a href="#Results" data-transition="slide">Thriller</a></li>
+						<li data-theme="c" class="genreli"><a href="#Results" data-transition="slide">Classical</a></li>
+						<li data-theme="c" class="genreli"><a href="#Results" data-transition="slide">Periodical</a></li>
+						<li data-theme="c" class="genreli"><a href="#Results" data-transition="slide">Non-Fiction</a></li>
+					</ul>
+				</div>			
+				<!-- Footer -->
+				<div data-role="footer" data-id="footer" data-position="fixed" data-theme="d" data-tap-toggle="false" class="nav_footer" id="nav_footer_genres">
+					<div data-role="navbar" data-position="fixed" data-tap-toggle="false" class="navbar" id="navbar_genres">
+						<ul>
+							<li><a href="#home" data-transition="slide" data-direction="reverse">Home</a></li>
+							<li><a href="#newItem" data-transition="slideup">Add New</a></li>
+							<li><a href="#viewAllItems" class="viewall" data-transition="slide">View All</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<!-- End of #Genres page -->
+			<!-- Start of #Results 'Single-Page Drill-Down' -->
+			<div data-role="page" id="Results" class="browser" style="background-image:url(images/banner.png)">
+				<!-- Header -->
+				<div data-role="header" data-id="header" data-theme="c" data-position="fixed" data-tap-toggle="false" class="header">
+					<h1>Book Tracker<img src="images/Header_xs.png" alt="Book Tracker" class="header_img"/></h1>
+				</div>
+				<!-- Page Content "CTA" -->
+				<div data-role="content" data-id="cta" class="cta">
+					<a href="#Genres" data-rel="back" class="featurestack">
+						<div>
+							<p class="banner">Results</p>
+							<h6>or click here to go back</h6>
+						</div>
+					</a>
+				</div>
+				<!-- Page Content "View and Search Browse Results" -->
+				<div data-role="content" class="body">
+					<ul class="browse" data-role="listview" data-dividertheme="b" data-filter="true" id="resultlist">
+						<!-- List divider/header with dynamic links -->
+						<li data-role="list-divider" class="listheader" id="showbrwstype">
+							<span>Viewing:</span>
+							<span><a href="#BookType" class="resref" id="typeref">Books</a></span>
+							<span><a href="#Genres" class="resref" id="genreref">Science-Fiction</a></span>
+						</li>
+						<li data-theme="c" class="resultli">
+							<img src="images/Book.png" class="showimg" alt="Book" />
+							<h3 class="showtitle">Thinking Fourth Dimensionally</h3>
+							<p>
+								<span class="showauthoer">Emmett Brown</span>
+								<span class="p_space"> | </span>
+								<span class="showpgs">Pages: 180</span>
+							</p>
+							<p>
+								<span class="showrating">Rating: 10</span>
+								<span class="p_space"> | </span>
+								<span class="showdate">Read: 2011-11-12</span>
+							</p>
+						</li>
+						<li data-theme="c" class="resultli">
+							<img src="images/Book.png" class="showimg" alt="Book" />
+							<h3 class="showtitle">Insurgent (Divergent)</h3>
+							<p>
+								<span class="showauthoer">Veronica Roth</span>
+								<span class="p_space"> | </span>
+								<span class="showpgs">Pages: 362</span>
+							</p>
+							<p>
+								<span class="showrating">Rating: 7</span>
+								<span class="p_space"> | </span>
+								<span class="showdate">Read: 2011-11-12</span>
+							</p>
+						</li>
+						<li data-theme="c" class="resultli">
+							<img src="images/Book.png" class="showimg" alt="Book" />
+							<h3 class="showtitle">Gone Girl</h3>
+							<p>
+								<span class="showauthoer">Gillian Flynn</span>
+								<span class="p_space"> | </span>
+								<span class="showpgs">Pages: 355</span>
+							</p>
+							<p>
+								<span class="showrating">Rating: 5</span>
+								<span class="p_space"> | </span>
+								<span class="showdate">Read: 2011-11-12</span>
+							</p>
+						</li>
+						<li data-theme="c" class="resultli">
+							<img src="images/Book.png" class="showimg" alt="Book" />
+							<h3 class="showtitle">The Amateur</h3>
+							<p>
+								<span class="showauthoer">Edward Klein</span>
+								<span class="p_space"> | </span>
+								<span class="showpgs">Pages: 254</span>
+							</p>
+							<p>
+								<span class="showrating">Rating: 7</span>
+								<span class="p_space"> | </span>
+								<span class="showdate">Read: 2011-11-12</span>
+							</p>
+						</li>
+						<li data-theme="c" class="resultli">
+							<img src="images/Book.png" class="showimg" alt="Book" />
+							<h3 class="showtitle">The Columbus Affair</h3>
+							<p>
+								<span class="showauthoer">Steve Berry</span>
+								<span class="p_space"> | </span>
+								<span class="showpgs">Pages: 412</span>
+							</p>
+							<p>
+								<span class="showrating">Rating: 5</span>
+								<span class="p_space"> | </span>
+								<span class="showdate">Read: 2011-11-12</span>
+							</p>
+						</li>
+					</ul>
+				</div>
+				<!-- Footer -->
+				<div data-role="footer" data-id="footer" data-position="fixed" data-theme="d" data-tap-toggle="false" class="nav_footer" id="nav_footer_results">
+					<div data-role="navbar" data-position="fixed" data-tap-toggle="false" class="navbar" id="navbar_results">
+						<ul>
+							<li><a href="#home" data-transition="slide" data-direction="reverse">Home</a></li>
+							<li><a href="#newItem" data-transition="slideup">Add New</a></li>
+							<li><a href="#viewAllItems" class="viewall" data-transition="slide">View All</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+			<!-- !Start of #newItem -->
+			<div data-role="page" id="newItem" class="browser" style="background-image:url(images/banner.png)">
+				<!-- Header -->
+				<div data-role="header" data-id="header" data-theme="c" data-position="fixed" data-tap-toggle="false" class="header">
+					<h1>Book Tracker<img src="images/Header_xs.png" alt="Book Tracker" class="header_img"/></h1>
+				</div>
+				<!-- Page Content "CTA" -->
+				<div data-role="content" data-id="cta" class="cta">
+					<a href="index.html" data-transition="slideup" data-direction="reverse" class="featurestack">
+						<div>
+							<p class="banner">Add a Book</p>
+							<h6>or click here to go home</h6>
+						</div>
+					</a>
+				</div>
+				<!-- 'Add Item' Form -->
+				<div data-role="content" class="body results">
+					<!-- Start of the Form -->
+					<div>
+						<p id="notify">*required fields</p>
+						<form action="#newItem" method="post" id="addItem">
+							<!-- Pick a Group / Type -->
+							<div data-role="fieldcontain">
+								<label for="groups">Media type</label>
+								<select name="groups" id="groups" data-native-menu="false" >
+									<option value="PickOne" data-placeholder="true">Pick one</option>
+									<option value="Book" class="option_btn" >Book</option>
+									<option value="EReader" class="option_btn" >E-Reader</option>
+									<option value="Tablet" class="option_btn" >Tablet</option>
+									<option value="Online" class="option_btn" >Online</option>
+								</select>
+							</div>
+							<!-- Enter the Title -->
+							<div data-role="fieldcontain">
+								<span>*<label for="booktitle" class="reqlabel">Title</label></span>
+								<input type="text" name="booktitle" id="booktitle" placeholder="The Great Gatsby" class="required" />
+							</div>
+							<!-- Enter the Author -->
+							<div data-role="fieldcontain">
+								<span>*<label for="author" class="reqlabel">Author</label></span>
+								<input type="text" name="author" id="author" placeholder="F. Scott Fitzgerald" class="required" />
+							</div>
+							<!-- Enter the Number of Pages -->
+							<div data-role="fieldcontain">
+								<span>*<label for="pages" class="reqlabel">Pages</label></span>
+								<input type="number" name="pages" id="pages" placeholder="180" class="required number" />
+							</div>
+							<!-- Enter the Finished-by Date -->
+							<div data-role="fieldcontain">
+								<label for="date">Date Finished</label>
+								<input type="date" name="date" id="date" placeholder="06/01/2012" data-role="datebox" data-options='{"mode": "calbox"}' />
+							</div>
+							<!-- Enter Range for Rating -->
+							<div data-role="fieldcontain">
+								<label for="rating" class="blocklabel">How fun was the book?</label>
+								<input type="range" name="rating" id="rating" value="5" min="0" max="10" />
+							</div>
+							<!-- Select Radio for Genre -->
+							<div data-role="fieldcontain">
+								<fieldset data-role="controlgroup" name="genre" id="genre">
+								<span>*<label for="genre" class="reqlabel">What was the genre?</label></span>
+									<legend>Genre</legend>
+									<input type="radio" value="Science-Fiction" name="genre" id="Science-Fiction" class="required" />
+									<label for="Science-Fiction">Science-Fiction</label>
+									<input type="radio" value="Fantasy" name="genre" id="Fantasy" />
+									<label for="Fantasy">Fantasy</label>
+									<input type="radio" value="Thriller" name="genre" id="Thriller" />
+									<label for="Thriller">Thriller</label>
+									<input type="radio" value="Classic" name="genre" id="Classic" />
+									<label for="Classic">Classic</label>
+									<input type="radio" value="Periodical" name="genre" id="Periodical" />
+									<label for="Periodical">Periodical</label>
+									<input type="radio" value="Non-Fiction" name="genre" id="Non-Fiction" />
+									<label for="Non-Fiction">Non-Fiction</label>
+								</fieldset>
+							</div>
+							<!-- Select Favorite Checkbox -->
+							<div data-role="fieldcontain" class="formslider">
+								<label for="favorite" class="blocklabel">Add to your favorites?</label>
+								<select data-role="slider" id="favorite" data-inline="false" >
+									<option value="off" selected="selected">Not a favorite</option>
+									<option value="on">Added to favorites</option>
+								</select>
+							</div>
+							<!-- Notes Area -->
+							<div data-role="fieldcontain">
+								<label for="notes">Notes</label>
+								<textarea id="notes"></textarea>
+							</div>
+							
+							<div id="formcontrols">
+								<!-- Submit Button -->
+								<div data-role="fieldcontain" id="fieldsubmit">
+									<input type="submit" value="Save your book" id="submit" data-theme="a"/>
+								</div>
+								
+								<!-- Reset Button (DOM) -->
+								<div data-role="fieldcontain" id="fieldreset">
+									<input type="reset" value="Reset the form" id="reset" class="reset" />
+								</div>
+								
+							</div>
+							<!-- Hidden Event Links -->
+							<a href="#geterrors" id="errorslink" data-rel="dialog" data-transition="none">Open Errors Dialog</a>
+							<a href="#allclear" id="clearall" data-rel="dialog" data-transition="none">Form Reset Dialog</a>
+						</form>
+					</div>
+				</div>
+				<!-- Footer -->
+				<div data-role="footer" data-id="footer" data-position="fixed" data-theme="d" data-tap-toggle="false" class="nav_footer" id="nav_footer_additem">
+					<div data-role="navbar" data-position="fixed" data-tap-toggle="false" class="navbar" id="navbar_additems">
+						<ul>
+							<li><a href="index.html" data-transition="slideup" data-direction="reverse">Home</a></li>
+							<li><a href="#" class="reset">Clear Form</a></li>
+							<li><a href="#viewAllItems" class="viewall" data-transition="slide">View All</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<!-- Form Validation Pop-up -->
+			<div data-role="dialog" id="geterrors" class="userdialog">
+			
+				<div data-role="header" data-position="fixed">
+					<h1>Something's Missing!</h1>
+				</div>
+						
+				<div data-role="content">
+					<ul>
+						<li>This will be replaced on actual validation.</li>
+					</ul>
+					<a href="#newItem" data-role="button" data-mini="true">Ok, I'll fix it!</a>
+				</div>
+			</div>
+			<!-- Reset Completed Pop-up -->
+			<div data-role="dialog" id="allclear" class="userdialog">
+			
+				<div data-role="header" data-position="fixed">
+					<h1>All clear!</h1>
+				</div>
+				
+				<div data-role="content">
+					<p>The form has been reset</p>
+					<a href="#newItem" data-role="button" data-mini="true">Ok!</a>
+				</div>
+			</div>
+		</div>
+
+		<!-- JavaScript Links -->
+		<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script> 
+		<script type="text/javascript" src="http://code.jquery.com/mobile/latest/jquery.mobile.min.js"></script>
+		<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.core.min.js"></script>
+		<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.mode.calbox.min.js"></script>
+		<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/i18n/jquery.mobile.datebox.i18n.en_US.utf8.js"></script>
+		<script type="text/javascript" src="js/libs/jquery.validate.min.js"></script>
+		<script type="text/javascript" src="js/main.js"></script>
+	</body>
+	<!-- Image References & Sources -->
+		<!-- Book image: http://www.glossyicon.com/wp-content/uploads/2009/05/old-book.jpg -->
+		<!-- Open Book image: http://www.iaitam.org/images/cmi/EN/OpenBook1.jpg -->
+		<!-- Tablet image: http://www.webdesignhot.com/wp-content/uploads/2011/10/Vector-Apple-iPad-2-Preview-2.jpg -->
+		<!-- EReader image:  http://psdlist.com/gadget/443/amazon-kindle-psd-file.html -->
+		<!-- Online image:  http://mob-arts.com/blog/wp-content/uploads/2010/03/100313_iMac.jpg -->
+		
+<!-- End of Document -->
+</html>
