@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<bookData>
+	<book id="book01">
+		<groups>Book</groups>
+		<titles>Come From a Land Down Under</titles>
+		<authors>Robin Ferrell</authors>
+		<readpages>255</readpages>
+		<datefinished>2008-06-21</datefinished>
+		<rating>7</rating>
+		<category>Science-Fiction</category>
+		<favs>Yes</favs>
+		<note>I come from a land down under.</note>
+	</book>
+</bookData>
